@@ -21,3 +21,6 @@ This repo proposes a clearer information architecture:
 - Tool integration glue → `tooling/*`
 - Session artifacts → `thoughts/shared/*`
 
+## References
+
+[affaan-m/everything-claude-code](https://github.com/affaan-m/everything-claude-code)
