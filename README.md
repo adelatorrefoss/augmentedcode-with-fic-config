@@ -1,13 +1,13 @@
-# augmentedcode-configuration — Reorg proposal (MR draft)
+# augmentedcode-with-fic-configuration
 
-This branch proposes a clearer information architecture:
+This repo proposes a clearer information architecture:
 - **docs/**: stable, readable documentation (concepts → workflow → TDD → recipes)
 - **rules/**: the normative rule set (single source of truth + optional profiles)
 - **tooling/**: per-tool adapters (Claude / Cursor / Codex)
 - **thoughts/**: FIC artifacts (research / plans / prs)
 
 ## Quick path (10 minutes)
-1. Use `tooling/claude/CLAUDE.md` as your project entry point (symlink it into your target repo if desired).
+1. Symlink CLAUDE.md to `tooling/claude/CLAUDE.md` as your project entry point.
 2. Follow the FIC light workflow described in `docs/10-fic-workflow.md`.
 3. Start a small kata and iterate with TDD (`docs/20-tdd-with-agents.md`).
 
@@ -21,4 +21,3 @@ This branch proposes a clearer information architecture:
 - Tool integration glue → `tooling/*`
 - Session artifacts → `thoughts/shared/*`
 
-> Note: contents are intentionally concise placeholders; you can copy your current material into the appropriate files.

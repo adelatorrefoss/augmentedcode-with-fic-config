@@ -4,8 +4,8 @@ These rules are intended to be referenced by tool entry points (CLAUDE.md / AGEN
 
 ## Working style
 - Prefer small, reversible steps.
-- Use tests to drive changes (TDD) unless the task is explicitly non-testable.
-- Keep context minimal; compact intent frequently (see docs/10-fic-workflow.md).
+- Use tests to drive changes (TDD) unless the task is explicitly non-testable (see ../docs/20-tdd-with-agents.md).
+- Keep context minimal; compact intent frequently (see ../docs/10-fic-workflow.md).
 
 ## Code changes
 - Do not introduce new libraries without justification.
@@ -15,3 +15,4 @@ These rules are intended to be referenced by tool entry points (CLAUDE.md / AGEN
 ## Output
 - Provide short, actionable plans.
 - Track key decisions in `thoughts/`.
+

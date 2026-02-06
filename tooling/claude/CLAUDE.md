@@ -7,3 +7,4 @@ This file should stay thin. Reference the normative rules:
 Suggested workflow:
 - Follow FIC: docs/10-fic-workflow.md
 - TDD guardrails: docs/20-tdd-with-agents.md
+
