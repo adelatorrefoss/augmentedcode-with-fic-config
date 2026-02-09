@@ -6,3 +6,4 @@ Reference:
 
 Workflow:
 - docs/10-fic-workflow.md
+- TDD guardrails: docs/20-tdd-with-agents.md

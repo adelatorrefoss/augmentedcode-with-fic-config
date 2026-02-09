@@ -4,7 +4,9 @@
 1. **Research**
    - Read the prompt/repo.
    - Summarize *only* the next deliverable + open decisions.
+   - Ask users any questions. DO NOT GUESS!
    - Persist the summary in `thoughts/shared/research/<topic>.md`.
+   - Create or update `TASKS.md` checklist with findings.
 
 2. **Plan**
    - Propose the smallest viable plan for the next slice.

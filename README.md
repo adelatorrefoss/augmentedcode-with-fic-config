@@ -1,6 +1,9 @@
-# augmentedcode-with-fic-configuration
+# Augmented code configuration
 
-This repo proposes a clearer information architecture:
+_This repo is based upon the work of [Eduardo Ferro - Augmented code configuration][1]_ 
+_This version was updated to have a FIC workflow approach (Frequent Intentional Compaction) inspidred by [Nacho Viejo post][3]_
+
+This repo proposes a clear information architecture:
 - **docs/**: stable, readable documentation (concepts → workflow → TDD → recipes)
 - **rules/**: the normative rule set (single source of truth + optional profiles)
 - **tooling/**: per-tool adapters (Claude / Cursor / Codex)
@@ -23,4 +26,13 @@ This repo proposes a clearer information architecture:
 
 ## References
 
-[affaan-m/everything-claude-code](https://github.com/affaan-m/everything-claude-code)
+[1]: https://github.com/adelatorrefoss/augmentedcode-configuration/
+[2]: https://github.com/affaan-m/everything-claude-code
+[3]: https://www.linkedin.com/posts/saski_github-saskiaugmentedcode-configuration-share-7409316228294549504-RXRJ/?utm_source=share&utm_medium=member_desktop&rcm=ACoAAACdAyYBerZ_Hv62VFsL9sVDbBepDDEJnSI
+[4]: https://nikeyes.github.io/tu-claude-md-no-funciona-sin-context-engineering-es/
+[5]: https://github.com/saski/augmentedcode-configuration
+
+
+## TODO
+- ai-feedback-learning-loop.md  ??
+- all below /commands ??
