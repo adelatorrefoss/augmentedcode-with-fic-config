@@ -226,6 +226,21 @@ Convierte el reset en **procedimiento**, no en conocimiento tribal.
 [5]: https://github.com/saski/augmentedcode-configuration
 
 
+## REPOSITORY FOR NAVIGATION
+[00-concepts.md](docs/00-concepts.md)
+[10-fic-workflow.md](docs/10-fic-workflow.md)
+[20-tdd-with-agents.md](docs/20-tdd-with-agents.md)
+[30-recipes.md](docs/30-recipes.md)
+[40-ai-feedback-learning-loop.md](docs/40-ai-feedback-learning-loop.md)
+[base.md](rules/base.md)
+[kotlin-tdd.md](rules/profiles/kotlin-tdd.md)
+[refactoring.md](rules/profiles/refactoring.md)
+[CLAUDE.md](tooling/claude/CLAUDE.md)
+[AGENTS.md](tooling/codex/AGENTS.md)
+[README.md](tooling/cursor/README.md)
+[rules.md](tooling/cursor/rules/rules.md)
+[GEMINI.md](tooling/gemini/GEMINI.md)
+
 ## TODO
 - ai-feedback-learning-loop.md  ??
 - all below /commands ??
