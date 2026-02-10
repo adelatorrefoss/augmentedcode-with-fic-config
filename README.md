@@ -1,4 +1,4 @@
-# Augmented code configuration
+# Augmented code with FIC (Frequent Intentional Compaction) configuration
 
 _This repo is based upon the work of [Eduardo Ferro - Augmented code configuration][1]_ 
 _This version was updated to have a FIC workflow approach (Frequent Intentional Compaction) inspidred by [Nacho Viejo post][3]_
