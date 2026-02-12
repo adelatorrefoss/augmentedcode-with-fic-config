@@ -18,4 +18,4 @@ A practical mitigation is **Frequent Intentional Compaction (FIC)**:
 - explicit validation
 - repeated compaction + resets between phases
 
-See `docs/10-fic-workflow.md`.
+See `.docs/10-fic-workflow.md`.

@@ -26,7 +26,7 @@ Piensa el repo en 4 capas, ordenadas por “lo que necesitas hoy para trabajar�
 
     1. Copiar/crear `CLAUDE.md` (o symlink) → 2) Primer comando → 3) Primera sesión con FIC “light”
 * **Ruta 2: Montaje completo (multi-tool + compaction)**
-  Estructura completa, `thoughts/`, comandos, feedback loop, etc.
+  Estructura completa, `.thoughts`, comandos, feedback loop, etc.
 
 *(Esto reduce muchísimo la fricción de adopción.)*
 
@@ -45,23 +45,23 @@ Piensa el repo en 4 capas, ordenadas por “lo que necesitas hoy para trabajar�
 
     * “Recetas” (katas, refactors, debugging, code review) en formato checklist.
 
-#### C. `rules/` (lo que “manda”)
+#### C. `.rules/` (lo que “manda”)
 
-* `rules/base.md` (tu single source of truth)
-* `rules/profiles/` (opcional)
+* `.rules/base.md` (tu single source of truth)
+* `.rules/profiles/` (opcional)
 
     * `kotlin-tdd.md`, `refactoring.md`, `cli-apps.md`…
       En vez de meterlo todo en `base.md`, activas perfil según tarea.
 
-#### D. `tooling/` (adaptadores por herramienta)
+#### D. `.tooling` (adaptadores por herramienta)
 
-* `tooling/claude/` → `CLAUDE.md` (o symlink) + comandos específicos si aplica
-* `tooling/cursor/` → `.cursor/commands`, `.cursor/rules`
-* `tooling/codex/` → `AGENTS.md` (o equivalente)
+* `.toolingclaude/` → `CLAUDE.md` (o symlink) + comandos específicos si aplica
+* `.toolingcursor/` → `.cursor/commands`, `.cursor/rules`
+* `.toolingcodex/` → `AGENTS.md` (o equivalente)
 
 > Esto separa *contenido* (rules/docs) de *integración* (tooling). En repos multi-tool se nota muchísimo.
 
-#### E. `thoughts/` (persistencia FIC, trackeado)
+#### E. `.thoughts` (persistencia FIC, trackeado)
 
 Tu enfoque encaja perfecto con la estructura que describe la implementación de FIC y “thoughts” (research/plans/PRs). ([GitHub][3])
 

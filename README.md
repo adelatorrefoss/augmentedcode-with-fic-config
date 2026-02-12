@@ -4,25 +4,25 @@ _This repo is based upon the work of [Eduardo Ferro - Augmented code configurati
 _This version was updated to have a FIC workflow approach (Frequent Intentional Compaction) inspidred by [Nacho Viejo post][3]_
 
 This repo proposes a clear information architecture:
-- **docs/**: stable, readable documentation (concepts → workflow → TDD → recipes)
-- **rules/**: the normative rule set (single source of truth + optional profiles)
-- **tooling/**: per-tool adapters (Claude / Cursor / Codex)
-- **thoughts/**: FIC artifacts (research / plans / prs)
+- **.docs/**: stable, readable documentation (concepts → workflow → TDD → recipes)
+- **.rules/**: the normative rule set (single source of truth + optional profiles)
+- **.tooling/**: per-tool adapters (Claude / Cursor / Codex)
+- **.thoughts/**: FIC artifacts (research / plans / prs)
 
 ## Quick path (10 minutes)
-1. Symlink CLAUDE.md to `tooling/claude/CLAUDE.md` as your project entry point.
+1. Symlink CLAUDE.md to `.toolingclaude/CLAUDE.md` as your project entry point.
 2. Follow the FIC light workflow described in `docs/10-fic-workflow.md`.
 3. Start a small kata and iterate with TDD (`docs/20-tdd-with-agents.md`).
 
 ## Where to put what
-- Concepts and rationale → `docs/00-concepts.md`
-- Workflow (FIC) → `docs/10-fic-workflow.md`
-- Operational rules (TDD/XP guardrails) → `docs/20-tdd-with-agents.md`
-- Playbooks/recipes → `docs/30-recipes.md`
-- Rules that must be followed → `rules/base.md`
-- Task-specific additions → `rules/profiles/*`
-- Tool integration glue → `tooling/*`
-- Session artifacts → `thoughts/shared/*`
+- Concepts and rationale → `.docs/00-concepts.md`
+- Workflow (FIC) → `.docs/10-fic-workflow.md`
+- Operational rules (TDD/XP guardrails) → `.docs/20-tdd-with-agents.md`
+- Playbooks/recipes → `.docs/30-recipes.md`
+- Rules that must be followed → `.rules/base.md`
+- Task-specific additions → `.rules/profiles/*`
+- Tool integration glue → `.tooling*`
+- Session artifacts → `.thoughtsshared/*`
 
 
 ## QUICK REFERENCE – RESET MEMORY (FIC)
@@ -35,9 +35,9 @@ This repo proposes a clear information architecture:
 
 Antes de cualquier reset, **compacta el estado útil** en un artefacto FIC:
 
-* `thoughts/shared/compaction-YYYYMMDD.md`
+* `.thoughtsshared/compaction-YYYYMMDD.md`
   o
-* `thoughts/plans/<task>-state.md`
+* `.thoughtsplans/<task>-state.md`
 
 Ese documento será el **único contexto válido** tras el reset.
 
@@ -67,7 +67,7 @@ Ignore any previous conversation or memory.
 
 Context:
 - Project uses Augmented Code with FIC.
-- Follow rules from rules/base.md strictly.
+- Follow rules from .rules/base.md strictly.
 - Use TDD and small steps.
 - Do not invent requirements.
 
@@ -101,7 +101,7 @@ Prompt base:
 ```text
 SYSTEM:
 You are a coding agent operating under Augmented Code with FIC.
-Rules in rules/base.md are mandatory.
+Rules in .rules/base.md are mandatory.
 Assume no prior context.
 
 USER:
@@ -135,8 +135,8 @@ Cursor mantiene **memoria implícita por workspace**.
 Reset context.
 
 Only valid inputs:
-- rules/base.md
-- rules/profiles/<active-profile>.md
+- .rules/base.md
+- .rules/profiles/<active-profile>.md
 - This context summary:
 
 <<paste compaction summary here>>
@@ -181,7 +181,7 @@ Constraints:
 
 ---
 
-## FIC Rule of Thumb (añadir a rules/base.md)
+## FIC Rule of Thumb (añadir a .rules/base.md)
 
 ```md
 ## Context reset rule
@@ -202,10 +202,10 @@ Never try to fix a drifting agent incrementally.
 
 ## Recommended next step (optional)
 
-Estandarizar los resets en `tooling/`:
+Estandarizar los resets en `.tooling`:
 
 ```
-tooling/
+.tooling
  └── reset-prompts/
      ├── claude-reset.md
      ├── codex-reset.md

@@ -5,8 +5,8 @@ These rules are intended to be referenced by tool entry points (CLAUDE.md / AGEN
 ## Working style
 
 - Prefer small, reversible steps.
-- Use tests to drive changes (TDD) unless the task is explicitly non-testable (see ../docs/20-tdd-with-agents.md).
-- Keep context minimal; compact intent frequently (see ../docs/10-fic-workflow.md).
+- Use tests to drive changes (TDD) unless the task is explicitly non-testable (see ../.docs/20-tdd-with-agents.md).
+- Keep context minimal; compact intent frequently (see ../.docs/10-fic-workflow.md).
 - **Simplicity First**: Use the simplest working solution; avoid unnecessary abstractions.
 - **Question Assumptions**: Always question assumptions
 - **Seek Clarification**: If in doubt, always ask for clarification before proceeding.
@@ -27,7 +27,7 @@ These rules are intended to be referenced by tool entry points (CLAUDE.md / AGEN
 ## Output
 
 - Provide short, actionable plans.
-- Track key decisions in `thoughts/`.
+- Track key decisions in `.thoughts`.
 - **Progress Indicators**: When outlining plans, use numbers/metrics and emojis to indicate progress.
 - **User-Focused README**: README.md must be user-focused, containing only information relevant to table authors and end users.
 
