@@ -1,1 +1,1 @@
-tooling/codex/AGENTS.md
+.tooling/codex/AGENTS.md

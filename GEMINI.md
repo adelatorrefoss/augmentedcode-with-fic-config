@@ -1,1 +1,1 @@
-tooling/gemini/GEMINI.md
+.tooling/gemini/GEMINI.md

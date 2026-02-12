@@ -1,1 +1,1 @@
-tooling/claude/CLAUDE.md
+.tooling/claude/CLAUDE.md
