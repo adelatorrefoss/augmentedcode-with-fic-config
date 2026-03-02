@@ -1,13 +1,19 @@
 # Augmented code with FIC (Frequent Intentional Compaction) configuration
 
-_This repo is based upon the work of [Eduardo Ferro - Augmented code configuration][1]_ 
-_This version was updated to have a FIC workflow approach (Frequent Intentional Compaction) inspidred by [Nacho Viejo post][3]_
+_This repo is a FIC workflow (Frequent Intentional Compaction) by  [Dex Horthy - Advanced context engineering for coding agents][6]_
+
+_Thanks to [Eduardo Ferro][1] for the base repo and [Nacho Viejo][3] for the inspiration to try FIC_
+_[Eduardo Ferro - Augmented code configuration][1]_ 
+_[Nacho Viejo FIC post][3]_
 
 This repo proposes a clear information architecture:
 - **.docs/**: stable, readable documentation (concepts → workflow → TDD → recipes)
 - **.rules/**: the normative rule set (single source of truth + optional profiles)
 - **.tooling/**: per-tool adapters (Claude / Cursor / Codex)
 - **.thoughts/**: FIC artifacts (research / plans / prs)
+
+
+## WIP : how to config  
 
 ## Quick path (10 minutes)
 1. Symlink CLAUDE.md to `.toolingclaude/CLAUDE.md` as your project entry point.
@@ -22,7 +28,7 @@ This repo proposes a clear information architecture:
 - Rules that must be followed → `.rules/base.md`
 - Task-specific additions → `.rules/profiles/*`
 - Tool integration glue → `.tooling*`
-- Session artifacts → `.thoughtsshared/*`
+- Session artifacts → `.thoughts/shared/*`
 
 
 ## QUICK REFERENCE – RESET MEMORY (FIC)
@@ -35,7 +41,7 @@ This repo proposes a clear information architecture:
 
 Antes de cualquier reset, **compacta el estado útil** en un artefacto FIC:
 
-* `.thoughtsshared/compaction-YYYYMMDD.md`
+* `.thoughts/shared/compaction-YYYYMMDD.md`
   o
 * `.thoughtsplans/<task>-state.md`
 
@@ -224,7 +230,7 @@ Convierte el reset en **procedimiento**, no en conocimiento tribal.
 [3]: https://www.linkedin.com/posts/saski_github-saskiaugmentedcode-configuration-share-7409316228294549504-RXRJ/?utm_source=share&utm_medium=member_desktop&rcm=ACoAAACdAyYBerZ_Hv62VFsL9sVDbBepDDEJnSI
 [4]: https://nikeyes.github.io/tu-claude-md-no-funciona-sin-context-engineering-es/
 [5]: https://github.com/saski/augmentedcode-configuration
-
+[6]: https://github.com/humanlayer/advanced-context-engineering-for-coding-agents/blob/main/ace-fca.md
 
 ## TODO
 - ai-feedback-learning-loop.md  ??
