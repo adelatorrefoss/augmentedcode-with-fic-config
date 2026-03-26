@@ -1,1 +1,1 @@
-.tooling/gemini/GEMINI.md
+.rules/entry.md

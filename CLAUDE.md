@@ -1,1 +1,0 @@
-.tooling/claude/CLAUDE.md

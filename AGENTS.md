@@ -1,1 +1,1 @@
-.tooling/codex/AGENTS.md
+.rules/entry.md

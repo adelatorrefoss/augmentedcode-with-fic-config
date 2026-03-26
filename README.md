@@ -7,54 +7,43 @@ _[Eduardo Ferro - Augmented code configuration][1]_
 _[Nacho Viejo FIC post][3]_
 
 This repo proposes a clear information architecture:
-- **.docs/**: stable, readable documentation (concepts → workflow → TDD → recipes)
-- **.rules/**: the normative rule set (single source of truth + optional profiles)
-- **.tooling/**: per-tool adapters (Claude / Cursor / Codex)
-- **.thoughts/**: FIC artifacts (research / plans / prs)
+- **.rules/**: the normative rule set (single source of truth + other rules)
+- **.docs/**: stable, readable documentation for humans.
+- **.thoughts/**: folders prepared for FIC artifacts (research / plans / prs)
 
 
-## WIP : how to config  
+## How to config
 
-## Quick path (10 minutes)
-1. Symlink CLAUDE.md to `.toolingclaude/CLAUDE.md` as your project entry point.
-2. Follow the FIC light workflow described in `docs/10-fic-workflow.md`.
-3. Start a small kata and iterate with TDD (`docs/20-tdd-with-agents.md`).
+1. Copy ai-repo files to working directory.
 
-## Where to put what
-- Concepts and rationale → `.docs/00-concepts.md`
-- Workflow (FIC) → `.docs/10-fic-workflow.md`
-- Operational rules (TDD/XP guardrails) → `.docs/20-tdd-with-agents.md`
-- Playbooks/recipes → `.docs/30-recipes.md`
-- Rules that must be followed → `.rules/base.md`
-- Task-specific additions → `.rules/profiles/*`
-- Tool integration glue → `.tooling*`
-- Session artifacts → `.thoughts/shared/*`
+// TODO
+
+## HOw to use FIC
+
+// TODO
+// EXPLAin workflow
 
 
-## QUICK REFERENCE – RESET MEMORY (FIC)
+### FIC Rule of Thumb (añadir a .rules/base.md)
 
-> Note: This section is for humans operating AI agents.
-> Agents cannot reset their own memory.
+```md
+## Context reset rule
 
-> **Resetear memoria no es borrar todo**
-> Es **forzar un nuevo contexto mínimo, explícito y controlado** usando FIC.
+If the agent shows:
+- repeated misunderstandings
+- rule violations
+- hallucinated constraints
+- excessive verbosity
 
-Antes de cualquier reset, **compacta el estado útil** en un artefacto FIC:
+STOP immediately.
 
-* `.thoughts/shared/compaction-YYYYMMDD.md`
-  o
-* `.thoughtsplans/<task>-state.md`
+Perform a context reset using a compaction summary.
+Never try to fix a drifting agent incrementally.
+```
 
-Ese documento será el **único contexto válido** tras el reset.
 
-### Contenido mínimo del compaction summary
 
-* **Goal / Non-goals**
-* **Decisions taken** (con rationale breve)
-* **Invariants / guardrails**
-* **Next single step**
-
----
+## Info about reset context in different agents
 
 ### Claude (Claude Code / Claude Chat)
 
@@ -185,42 +174,6 @@ Constraints:
 
 👉 Sé más imperativo que con Claude o Codex.
 
----
-
-## FIC Rule of Thumb (añadir a .rules/base.md)
-
-```md
-## Context reset rule
-
-If the agent shows:
-- repeated misunderstandings
-- rule violations
-- hallucinated constraints
-- excessive verbosity
-
-STOP immediately.
-
-Perform a context reset using a compaction summary.
-Never try to fix a drifting agent incrementally.
-```
-
----
-
-## Recommended next step (optional)
-
-Estandarizar los resets en `.tooling`:
-
-```
-.tooling
- └── reset-prompts/
-     ├── claude-reset.md
-     ├── codex-reset.md
-     ├── cursor-reset.md
-     └── gemini-reset.md
-```
-
-Convierte el reset en **procedimiento**, no en conocimiento tribal.
-
 
 
 ## References
@@ -231,7 +184,3 @@ Convierte el reset en **procedimiento**, no en conocimiento tribal.
 [4]: https://nikeyes.github.io/tu-claude-md-no-funciona-sin-context-engineering-es/
 [5]: https://github.com/saski/augmentedcode-configuration
 [6]: https://github.com/humanlayer/advanced-context-engineering-for-coding-agents/blob/main/ace-fca.md
-
-## TODO
-- ai-feedback-learning-loop.md  ??
-- all below /commands ??

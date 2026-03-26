@@ -5,8 +5,8 @@ These rules are intended to be referenced by tool entry points (CLAUDE.md / AGEN
 ## Working style
 
 - Prefer small, reversible steps.
-- Use tests to drive changes (TDD) unless the task is explicitly non-testable (see ../.docs/20-tdd-with-agents.md).
-- Keep context minimal; compact intent frequently (see ../.docs/10-fic-workflow.md).
+- Use tests to drive changes (TDD) unless the task is explicitly non-testable (see .rules/tdd-with-agents.md).
+- Keep context minimal; compact intent frequently (see .rules/fic-workflow.md).
 - **Simplicity First**: Use the simplest working solution; avoid unnecessary abstractions.
 - **Question Assumptions**: Always question assumptions
 - **Seek Clarification**: If in doubt, always ask for clarification before proceeding.
@@ -57,15 +57,15 @@ These rules are intended to be referenced by tool entry points (CLAUDE.md / AGEN
 ## 13. Quick Reference for All AI Agents
 
 When working on this project:
-2. 
-3. **Take baby steps** - one test, one file, one change at a time 👣
-3. **Always write the failing test first** (TDD) ❌➡️✅
-5. **Keep code small and typed** - max 20 lines per method 📏
-6. **Show your thinking process** - be conversational and progressive 💭
-7. **Question everything** - assumptions, requirements, design choices ❓
-8. **Validate before EVERY commit** - zero tolerance ✅
-9. **Run tests automatically** after every change 🧪
-10. **Focus on simplicity** over cleverness ✨
-11. **Ask for clarification** when in doubt 🤔
+
+1. **Take baby steps** - one test, one file, one change at a time 👣
+2. **Always write the failing test first** (TDD) ❌➡️✅
+3. **Keep code small and typed** - max 20 lines per method 📏
+4. **Show your thinking process** - be conversational and progressive 💭
+5. **Question everything** - assumptions, requirements, design choices ❓
+6. **Validate before EVERY commit** - zero tolerance ✅
+7. **Run tests automatically** after every change 🧪
+8. **Focus on simplicity** over cleverness ✨
+9. **Ask for clarification** when in doubt 🤔
 
 Remember: This is a high-quality, test-driven, incremental development environment. Quality over speed, clarity over cleverness, baby steps over big leap
