@@ -27,11 +27,20 @@
 
 These shorthand prompts are first-class repo conventions.
 When an agent sees one of these aliases, it should treat it as a workflow command, not as an informal label.
+The expected command form is:
+
+- `fic-research: <topic or task>`
+- `fic-plan: <topic or task>`
+- `fic-implement: <topic or task>`
+- `fic-validate: <topic or task>`
+
+The text after the colon is the task-specific payload.
+The workflow behavior, phase boundaries, and default artifact location come from the alias itself.
 
 - `fic-research`: do Research only, do not implement, and save the result in `.thoughts/shared/research/<YYYYMMDDHHMM-topic>.md`.
 - `fic-plan`: do Plan only, propose the smallest viable next slice, and save the result in `.thoughts/shared/plans/<YYYYMMDDHHMM-topic>.md`.
-- `fic-implement`: do Implement only, execute the approved plan in small steps, and prefer TDD.
-- `fic-validate`: do Validate only, run checks, summarize what changed and what comes next, and save the result in `.thoughts/shared/prs/<YYYYMMDDHHMM-topic>.md`.
+- `fic-implement`: do Implement only, execute the approved plan for the same topic in small steps, prefer TDD, and do not switch back into research or planning mode unless blocked.
+- `fic-validate`: do Validate only, do not add new scope, run checks, summarize what changed and what comes next, and save the result in `.thoughts/shared/prs/<YYYYMMDDHHMM-topic>.md`.
 
 ## Compaction rule of thumb
 - After Research → clear/reset context
@@ -40,13 +49,13 @@ When an agent sees one of these aliases, it should treat it as a workflow comman
 
 ## “FIC light” prompts (copy/paste)
 ### Research
-- “Read the problem and repo. Summarize only the next slice of requirements and pending decisions. Do not implement. Save to `.thoughts/shared/research/<YYYYMMDDHHMM-topic>.md` using the `.thoughts/templates/research.md` template.”
+- `fic-research: get-users-api-endpoint`
 
 ### Plan
-- “Propose a minimal design and a step-by-step TDD plan for the next slice. Save to `.thoughts/shared/plans/<YYYYMMDDHHMM-topic>.md` using the `.thoughts/templates/plan.md` template.”
+- `fic-plan: get-users-api-endpoint`
 
 ### Implement
-- “Execute the plan in tiny steps. One failing test at a time. No scope creep.”
+- `fic-implement: get-users-api-endpoint`
 
 ### Validate
-- “Run tests, remove duplication, verify constraints. Summarize results in `.thoughts/shared/prs/<YYYYMMDDHHMM-topic>.md` using the `.thoughts/templates/validation.md` template.”
+- `fic-validate: get-users-api-endpoint`

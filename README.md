@@ -44,30 +44,30 @@ See [.docs/fic-philosophy.md](.docs/fic-philosophy.md) for more details, and [.r
 ### Example Prompts
 
 The repo also supports shorthand phase aliases: `fic-research`, `fic-plan`, `fic-implement`, and `fic-validate`.
-Use one small prompt per phase.
+Use one small command per phase. The alias carries the workflow behavior; the text after `:` only provides the topic or task.
 
 **Research**
 
 ```text
-fic-research: research how to implement a get-users API endpoint. Give me 2-3 options with pros and cons. Do not implement. Save to `.thoughts/shared/research/<YYYYMMDDHHMM>-get-users-endpoint.md`.
+fic-research: get-users-api-endpoint
 ```
 
 **Plan**
 
 ```text
-fic-plan: propose the smallest viable plan for the get-users API endpoint. Use TDD and keep the steps small. Save to `.thoughts/shared/plans/<YYYYMMDDHHMM>-get-users-endpoint.md`.
+fic-plan: get-users-api-endpoint
 ```
 
 **Implement**
 
 ```text
-fic-implement: execute the approved plan for the get-users API endpoint in tiny steps. One failing test at a time. No scope creep.
+fic-implement: get-users-api-endpoint
 ```
 
 **Validate**
 
 ```text
-fic-validate: run tests, verify constraints, and summarize what changed and what comes next for the get-users API endpoint. Save to `.thoughts/shared/prs/<YYYYMMDDHHMM>-get-users-endpoint.md`.
+fic-validate: get-users-api-endpoint
 ```
 
 ## Included Files
