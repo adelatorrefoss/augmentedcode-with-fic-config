@@ -23,6 +23,16 @@
    - Check constraints are still satisfied.
    - Capture the final compact summary (what changed, why) in `.thoughts/shared/prs/<YYYYMMDDHHMM-topic>.md` (use `.thoughts/templates/validation.md` as a guide).
 
+## Phase aliases
+
+These shorthand prompts are first-class repo conventions.
+When an agent sees one of these aliases, it should treat it as a workflow command, not as an informal label.
+
+- `fic-research`: do Research only, do not implement, and save the result in `.thoughts/shared/research/<YYYYMMDDHHMM-topic>.md`.
+- `fic-plan`: do Plan only, propose the smallest viable next slice, and save the result in `.thoughts/shared/plans/<YYYYMMDDHHMM-topic>.md`.
+- `fic-implement`: do Implement only, execute the approved plan in small steps, and prefer TDD.
+- `fic-validate`: do Validate only, run checks, summarize what changed and what comes next, and save the result in `.thoughts/shared/prs/<YYYYMMDDHHMM-topic>.md`.
+
 ## Compaction rule of thumb
 - After Research → clear/reset context
 - After Plan → clear/reset context

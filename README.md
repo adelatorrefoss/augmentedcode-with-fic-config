@@ -43,30 +43,31 @@ See [.docs/fic-philosophy.md](.docs/fic-philosophy.md) for more details, and [.r
 
 ### Example Prompts
 
+The repo also supports shorthand phase aliases: `fic-research`, `fic-plan`, `fic-implement`, and `fic-validate`.
 Use one small prompt per phase.
 
 **Research**
 
 ```text
-Read the problem and repo. Summarize only the next slice of requirements and open decisions. Do not implement. Save the result in `.thoughts/shared/research/<YYYYMMDDHHMM-topic>.md`.
+fic-research: research how to implement a get-users API endpoint. Give me 2-3 options with pros and cons. Do not implement. Save to `.thoughts/shared/research/<YYYYMMDDHHMM>-get-users-endpoint.md`.
 ```
 
 **Plan**
 
 ```text
-Propose the smallest viable plan for the next slice. Use TDD and keep the steps small. Save the plan in `.thoughts/shared/plans/<YYYYMMDDHHMM-topic>.md`.
+fic-plan: propose the smallest viable plan for the get-users API endpoint. Use TDD and keep the steps small. Save to `.thoughts/shared/plans/<YYYYMMDDHHMM>-get-users-endpoint.md`.
 ```
 
 **Implement**
 
 ```text
-Execute the plan in tiny steps. One failing test at a time. No scope creep.
+fic-implement: execute the approved plan for the get-users API endpoint in tiny steps. One failing test at a time. No scope creep.
 ```
 
 **Validate**
 
 ```text
-Run tests, verify constraints, and summarize what changed and what comes next. Save the result in `.thoughts/shared/prs/<YYYYMMDDHHMM-topic>.md`.
+fic-validate: run tests, verify constraints, and summarize what changed and what comes next for the get-users API endpoint. Save to `.thoughts/shared/prs/<YYYYMMDDHHMM>-get-users-endpoint.md`.
 ```
 
 ## Included Files
