@@ -48,7 +48,7 @@ These rules are intended to be the base to an agent
 - **Dependency Security**: Regularly update dependencies and monitor for security vulnerabilities.
 
 ### Testing Strategy Distinction
-- **Unit Tests**: Fast, isolated tests for individual components (majority of test suite).
+- **Unit Tests**: Fast, isolated tests for individual components (majority of test suite). Test the functional unit, from use case to infra port, avoid mock internal services, unless is necessary to simplify test configuration.
 - **Integration Tests**: Test interactions between components and external systems (limited, focused).
 - **E2E Tests**: Full system validation (minimal, critical user paths only).
 - **Test Pyramid**: Follow the test pyramid - many unit tests, some integration tests, few E2E tests.
