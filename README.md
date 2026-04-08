@@ -11,6 +11,13 @@ This repo proposes a clear information architecture:
 - **.docs/**: stable, readable documentation for humans.
 - **.thoughts/**: folders prepared for FIC artifacts (research / plans / prs)
 
+## Core Principles
+
+- **Context Hygiene**: Treat context as a scarce resource; frequently summarize and reset.
+- **Small, Reversible Steps**: Break tasks into the smallest possible slices to minimize risk.
+- **Single Source of Truth**: All normative logic resides in `.rules/`.
+- **Continuous Compaction**: At every boundary (research, plan, implementation), compact the current state.
+
 
 ## Installation & Setup
 
