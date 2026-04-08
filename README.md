@@ -22,13 +22,19 @@ This repo proposes a clear information architecture:
 
 ## Installation & Setup
 
-1. Copy the configuration files and directories to your working repository:
+1. Copy the generic configuration files and directories to your working repository:
 
 ```bash
 cp -rf .rules .agents .thoughts .docs AGENTS.md CLAUDE.md GEMINI.md PROJECT.md .gitignore /path/to/working-repo/
 ```
 
-2. Customize `PROJECT.md` with your repository's specific information.
+2. Treat the copied content as follows:
+
+- `.rules`, `.thoughts`, `AGENTS.md`, `CLAUDE.md`, and `GEMINI.md` are the core generic FIC setup.
+- `.docs` is generic supporting documentation that explains the philosophy, architecture, and maintenance model.
+- `.agents` contains reusable agent skills and extensions. Keep this folder generic and portable; do not put machine-local configuration here.
+- `PROJECT.md` is a starter project-specific file. Replace the placeholder content with context for your target repository.
+- `.gitignore` is optional. Keep it only if it matches your target repository's needs.
 
 ## How to use FIC
 
@@ -74,6 +80,7 @@ fic-validate: get-users-api-endpoint
 
 - `AGENTS.md`, `CLAUDE.md`, `GEMINI.md`: agent entry points linked to `.rules/entry.md`, the unique entry point
 - `.rules/`: (for agents) mandatory operating rules and workflow guidance
+- `.agents/`: generic reusable skills and agent extensions
 - `.docs/`: (for humans) optional reference material for architecture, compatibility, and maintenance
 - `.thoughts/`: templates and folders for research, planning, and validation artifacts
 - `PROJECT.md`: project-specific context to customize after copying the repo

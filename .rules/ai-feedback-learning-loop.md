@@ -33,7 +33,7 @@ Upon receiving feedback or guidance from the user, the AI MUST follow these step
         *   **Did the interaction involve modifying a document, and if so, was relevant metadata (e.g., `last_updated` date, `version` number, changelogs) also considered for updates according to established documentation standards?**
 
 3.  **Review Existing Development Rules for Relevance:**
-    *   Review the contents of `.agents/rules/base.md` and other relevant rule files in `.agents/rules/`.
+    *   Review the contents of `.rules/base-rules.md` and other relevant rule files in `.rules/`.
     *   Identify if any existing rule(s) are directly or indirectly related to the feedback received and the learnings derived.
     *   Determine if an update to one or more rules could codify the new learning, making future AI assistance more accurate or helpful.
 

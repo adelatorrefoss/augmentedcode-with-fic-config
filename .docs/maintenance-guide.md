@@ -20,6 +20,7 @@ If the agent consistently misses a specific rule, don't just repeat it.
 ## 4. Documentation vs Rules
 - **`.rules/`**: Rules are normative and tell the agent *how* to act.
 - **`.docs/`**: Documentation is descriptive and tells the agent *what* exists.
+- **`.agents/`**: Skills and extensions are reusable capability modules. Keep them generic and avoid machine-local configuration.
 - **Avoid Duplication**: Do not put the same information in both places. Rules should point to documentation for domain-specific details.
 
 ## 5. Maintenance Loop
