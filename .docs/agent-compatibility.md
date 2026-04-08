@@ -2,18 +2,22 @@
 
 Each AI agent has its own way of managing context. This matrix shows how to force a "compaction boundary" to maintain FIC effectiveness.
 
+## Volatile Guidance
+
+This document describes operational behavior that may change as tools evolve.
+Treat these notes as working guidance, not a permanent contract.
+If an agent command, reset flow, or IDE behavior changes, update this file after revalidating the current behavior.
+
 | Agent | Entry Point | Reset Method | FIC Effectiveness |
 | :--- | :--- | :--- | :--- |
-| **Claude Chat** | `CLAUDE.md` | New Chat / Conversation | High |
 | **Claude Code** | `CLAUDE.md` | `/compact` or New Shell | Very High |
 | **Gemini** | `GEMINI.md` | New Conversation | Medium (Persistent Memory) |
 | **Codex (via IDE)** | `AGENTS.md` | Clear Chat / New Session | High (Stateless) |
 
 ## Reset Procedures
 
-### Claude (Chat & Code)
+### Claude Code
 Claude is highly sensitive to context.
-- **Claude Chat**: Manually open a new conversation. Use the "Mandatory first message" from `README.md`.
 - **Claude Code**: Use the `/compact` command to summarize and then `/init` (if supported) or start a new session.
 
 ### Gemini

@@ -1,6 +1,6 @@
 # Base rules (single source of truth)
 
-These rules are intended to be the base to an agent
+These rules are intended to be the base instructions for an agent.
 
 ## Working style
 
@@ -8,7 +8,7 @@ These rules are intended to be the base to an agent
 - Use tests to drive changes (TDD) unless the task is explicitly non-testable (see .rules/tdd-with-agents.md).
 - Keep context minimal; compact intent frequently (see .rules/fic-workflow.md).
 - **Simplicity First**: Use the simplest working solution; avoid unnecessary abstractions.
-- **Question Assumptions**: Always question assumptions
+- **Question Assumptions**: Always question assumptions.
 - **Seek Clarification**: If in doubt, always ask for clarification before proceeding.
 - **Sequential Questions**: Only one question at a time; each question should build on previous answers.
 
@@ -22,7 +22,7 @@ These rules are intended to be the base to an agent
 - **TDD Workflow**: Test-Driven Development (TDD) is the default workflow: always write tests first.
 - **OOP Design**: Use Object-Oriented Programming (OOP) for all components and features.
 - **Self-Documenting Code**: Avoid comments in code; rely on self-documenting names. Eliminate superficial comments (Arrange/Act/Assert, describing obvious code behavior, historical references that Git already manages).
-- **English-Only Artifacts**: All technical artifacts must always use English
+- **English-Only Artifacts**: All technical artifacts must always use English.
 
 ## Context reset rule (FIC Rule of Thumb)
 
@@ -61,15 +61,15 @@ Never try to fix a drifting agent incrementally.
 - **Dependency Security**: Regularly update dependencies and monitor for security vulnerabilities.
 
 ### Testing Strategy Distinction
-- **Unit Tests**: Fast, isolated tests for individual components (majority of test suite). Test the functional unit, from use case to infra port, avoid mock internal services, unless is necessary to simplify test configuration.
+- **Unit Tests**: Fast, isolated tests for individual components (the majority of the test suite). Test the functional unit, from use case to infrastructure port, and avoid mocking internal services unless necessary to simplify test configuration.
 - **Integration Tests**: Test interactions between components and external systems (limited, focused).
 - **E2E Tests**: Full system validation (minimal, critical user paths only).
 - **Test Pyramid**: Follow the test pyramid - many unit tests, some integration tests, few E2E tests.
 
 ## Refactoring
 
-When prompt for refactoring use rules in ./refactoring-planner.md
+When prompted for refactoring, use the rules in `./refactoring-planner.md`.
 
 ## AI Feedback learning loop
 
-When prompt for feedback learning after a process use the rules in ./ai-feedback-learning-loop.md
+When prompted for feedback learning after a process, use the rules in `./ai-feedback-learning-loop.md`.

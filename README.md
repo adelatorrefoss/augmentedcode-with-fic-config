@@ -7,9 +7,10 @@ _[Eduardo Ferro - Augmented code configuration][1]_
 _[Nacho Viejo FIC post][3]_
 
 This repo proposes a clear information architecture:
-- **.rules/**: the normative rule set (single source of truth + other rules)
-- **.docs/**: stable, readable documentation for humans.
-- **.thoughts/**: folders prepared for FIC artifacts (research / plans / prs)
+- **.rules/**: the normative rule set (single source of truth + other rules) (for agents).
+- **.docs/**: stable, readable documentation (for humans).
+- **.thoughts/**: folders prepared for FIC artifacts (research / plans / prs).
+- `AGENTS.md`, `CLAUDE.md`, `GEMINI.md`: agent entry points linked to the one and only `.rules/entry.md`.
 
 ## Core Principles
 
@@ -38,108 +39,50 @@ The FIC (Frequent Intentional Compaction) workflow helps manage agent context by
 3. **Implement**: Execute in micro-steps.
 4. **Validate**: Run tests and capture a final summary in `.thoughts/shared/prs/`.
 
-See [.rules/fic-workflow.md](.rules/fic-workflow.md) for detailed instructions.
+See [.docs/fic-philosophy.md](.docs/fic-philosophy.md) for more details, and [.rules/fic-workflow.md](.rules/fic-workflow.md) for detailed instructions.
 
+### Example Prompts
 
+Use one small prompt per phase.
 
-## Info about reset context in different agents
-
-### Claude (Claude Code / Claude Chat)
-
-Claude **does not have a real reset**. Resetting is done by **completely replacing the context**.
-
-**Recommended Procedure**
-
-1. Open a **new conversation**
-2. Mandatory first message:
+**Research**
 
 ```text
-You are starting a new session.
-
-This is the ONLY valid context.
-Ignore any previous conversation or memory.
-
-Context:
-- Project uses Augmented Code with FIC.
-- Follow rules from .rules/base-rules.md strictly.
-- Use TDD and small steps.
-- Do not invent requirements.
-
-Current state (authoritative):
-<<paste compaction summary here>>
-
-Your task:
-<<one single, explicit next step>>
+Read the problem and repo. Summarize only the next slice of requirements and open decisions. Do not implement. Save the result in `.thoughts/shared/research/<YYYYMMDDHHMM-topic>.md`.
 ```
 
-**Signal of correct reset**
-
-* Claude restates the goal
-* It doesn't carry over previous context
-* It asks before assuming
-
----
-
-### Codex (OpenAI Codex)
-
-Codex is **stateless per request** if used correctly.
-
-**Effective Reset**
-
-* New call
-* New `messages[]`
-* Do not reuse previous conversation
-
-Prompt base:
+**Plan**
 
 ```text
-SYSTEM:
-You are a coding agent operating under Augmented Code with FIC.
-Rules in .rules/base-rules.md are mandatory.
-Assume no prior context.
-
-USER:
-Context summary:
-<<paste compaction summary here>>
-
-Task:
-<<single explicit step>>
+Propose the smallest viable plan for the next slice. Use TDD and keep the steps small. Save the plan in `.thoughts/shared/plans/<YYYYMMDDHHMM-topic>.md`.
 ```
 
-**Anti-pattern**
-
-* Sending back long history
-* "Continuing where we left off"
-
-That **breaks FIC**.
-
----
-
-### Gemini
-
-Gemini has **weak but persistent** conversational memory.
-
-**Recommended Reset**
-
-1. New conversation
-2. Explicit first message:
+**Implement**
 
 ```text
-Forget any previous context.
-Start from scratch.
-
-Authoritative context:
-<<paste compaction summary here>>
-
-Constraints:
-- Follow TDD
-- Ask before assuming
-- Small, reversible steps only
+Execute the plan in tiny steps. One failing test at a time. No scope creep.
 ```
 
-👉 Be more imperative than with Claude or Codex.
+**Validate**
 
+```text
+Run tests, verify constraints, and summarize what changed and what comes next. Save the result in `.thoughts/shared/prs/<YYYYMMDDHHMM-topic>.md`.
+```
 
+## Included Files
+
+- `AGENTS.md`, `CLAUDE.md`, `GEMINI.md`: agent entry points linked to `.rules/entry.md`, the unique entry point
+- `.rules/`: (for agents) mandatory operating rules and workflow guidance
+- `.docs/`: (for humans) optional reference material for architecture, compatibility, and maintenance
+- `.thoughts/`: templates and folders for research, planning, and validation artifacts
+- `PROJECT.md`: project-specific context to customize after copying the repo
+
+## More Documentation
+
+- Use [.docs/architecture-overview.md](.docs/architecture-overview.md) for the repo structure and information architecture.
+- Use [.docs/fic-philosophy.md](.docs/fic-philosophy.md) for FIC guidance.
+- Use [.docs/agent-compatibility.md](.docs/agent-compatibility.md) for agent-specific reset guidance.
+- Use [.docs/maintenance-guide.md](.docs/maintenance-guide.md) for documentation and rule maintenance practices.
 
 ## References
 

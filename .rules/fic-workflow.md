@@ -19,7 +19,7 @@
 4. **Validate**
    - Run tests + basic quality gates.
    - Check test quality, coverage, assertions, and test quality gates.
-   - Critic unit test vs integration test.
+   - Critique the unit test vs. integration test split.
    - Check constraints are still satisfied.
    - Capture the final compact summary (what changed, why) in `.thoughts/shared/prs/<YYYYMMDDHHMM-topic>.md` (use `.thoughts/templates/validation.md` as a guide).
 
