@@ -25,7 +25,7 @@ This repo proposes a clear information architecture:
 1. Copy the generic configuration files and directories to your working repository:
 
 ```bash
-cp -rf .rules .agents .thoughts .docs AGENTS.md CLAUDE.md GEMINI.md PROJECT.md .gitignore /path/to/working-repo/
+cp -a .rules .agents .thoughts .docs AGENTS.md CLAUDE.md GEMINI.md PROJECT.md .gitignore /path/to/working-repo/
 ```
 
 2. Treat the copied content as follows:
