@@ -6,7 +6,7 @@ description: This meta-rule outlines the process for the AI to learn from user f
 
 ## 1. Introduction / Problem
 
-**Problem:** The AI's understanding of project-specific nuances, conventions, and user preferences can benefit from explicit feedback. Without a systematic process, valuable insights from user interactions might not be captured and integrated into the AI's guiding principles (i.e., the Development Rules in `.agents/rules/base.md`).
+**Problem:** The AI's understanding of project-specific nuances, conventions, and user preferences can benefit from explicit feedback. Without a systematic process, valuable insights from user interactions might not be captured and integrated into the AI's guiding principles (i.e., the Development Rules in `base-rules.md`).
 
 **Purpose:** This rule establishes a mandatory process for the AI to:
 *   Actively learn from user feedback, guidance, and suggestions.

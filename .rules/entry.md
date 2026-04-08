@@ -1,7 +1,9 @@
 # Entry point
 
-Reference:
+This file is the entry point for any agent (CLAUDE.md, AGENTS.md, GEMINI.md, etc).
+
+Read base rules:
 - .rules/base-rules.md
 
-Project info if exists:
+Read project info if exists:
 - PROJECT.md

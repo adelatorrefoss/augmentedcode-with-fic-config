@@ -16,9 +16,11 @@ This repo proposes a clear information architecture:
 
 1. Copy ai-repo files to working directory.
 
-// TODO
+```
+cp -rf AGENTS.md GEMINI.md .rules .agents .thoughts /to/working-repo
+```
 
-## HOw to use FIC
+## How to use FIC
 
 // TODO
 // EXPLAin workflow

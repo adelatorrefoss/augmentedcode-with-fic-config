@@ -1,6 +1,6 @@
 # Base rules (single source of truth)
 
-These rules are intended to be referenced by tool entry points (CLAUDE.md / AGENTS.md / Cursor rules).
+These rules are intended to be the base to an agent
 
 ## Working style
 
@@ -32,7 +32,7 @@ These rules are intended to be referenced by tool entry points (CLAUDE.md / AGEN
 - **User-Focused README**: README.md must be user-focused, containing only information relevant to table authors and end users.
 
 
-## 9. Development Best Practices
+## Development Best Practices
 
 ### Error Handling & Debugging
 - **Graceful Error Handling**: Always implement proper error handling with meaningful error messages.
@@ -53,19 +53,10 @@ These rules are intended to be referenced by tool entry points (CLAUDE.md / AGEN
 - **E2E Tests**: Full system validation (minimal, critical user paths only).
 - **Test Pyramid**: Follow the test pyramid - many unit tests, some integration tests, few E2E tests.
 
+## Refactoring
 
-## 13. Quick Reference for All AI Agents
+When prompt for refactoring use rules in ./refactoring-planner.md
 
-When working on this project:
+## AI Feedback learning loop
 
-1. **Take baby steps** - one test, one file, one change at a time 👣
-2. **Always write the failing test first** (TDD) ❌➡️✅
-3. **Keep code small and typed** - max 20 lines per method 📏
-4. **Show your thinking process** - be conversational and progressive 💭
-5. **Question everything** - assumptions, requirements, design choices ❓
-6. **Validate before EVERY commit** - zero tolerance ✅
-7. **Run tests automatically** after every change 🧪
-8. **Focus on simplicity** over cleverness ✨
-9. **Ask for clarification** when in doubt 🤔
-
-Remember: This is a high-quality, test-driven, incremental development environment. Quality over speed, clarity over cleverness, baby steps over big leap
+When prompt for feedback learning after a process use the rules in ./ai-feedback-learning-loop.md
