@@ -11,8 +11,8 @@ This file is the entry point for any agent (CLAUDE.md, AGENTS.md, GEMINI.md, etc
 Read project info if exists:
 - PROJECT.md
 
-For deeper context on FIC and architecture, read `.docs/` in this order:
-1. `fic-philosophy.md`
-2. `architecture-overview.md`
-3. `agent-compatibility.md`
-4. `maintenance-guide.md`
+Optional deeper context, only if needed for the current task:
+- `.docs/fic-philosophy.md`
+- `.docs/architecture-overview.md`
+- `.docs/agent-compatibility.md`
+- `.docs/maintenance-guide.md`
