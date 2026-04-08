@@ -6,8 +6,8 @@ The repository organizes information into distinct layers based on their stabili
 
 ### 1. `.rules/` (The "How"): Normative Logic
 This layer contains the system's "constitution." It defines the behavior and constraints for the AI agent.
-- **`base-rules.md`**: Global rules (single source of truth).
 - **`entry.md`**: Entry point that tells the agent which other rules are important.
+- **`base-rules.md`**: Global rules (single source of truth).
 - **`fic-workflow.md`**: Detailed instructions for the research-plan-implement-validate loop.
 - **Specialized Rules**: (e.g., `tdd-with-agents.md`, `refactoring-planner.md`) loaded only when needed.
 
