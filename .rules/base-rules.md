@@ -24,6 +24,19 @@ These rules are intended to be the base to an agent
 - **Self-Documenting Code**: Avoid comments in code; rely on self-documenting names. Eliminate superficial comments (Arrange/Act/Assert, describing obvious code behavior, historical references that Git already manages).
 - **English-Only Artifacts**: All technical artifacts must always use English
 
+## Context reset rule (FIC Rule of Thumb)
+
+If the agent shows:
+- repeated misunderstandings
+- rule violations
+- hallucinated constraints
+- excessive verbosity
+
+STOP immediately.
+
+Perform a context reset using a compaction summary.
+Never try to fix a drifting agent incrementally.
+
 ## Output
 
 - Provide short, actionable plans.

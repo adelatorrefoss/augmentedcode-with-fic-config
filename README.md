@@ -12,36 +12,26 @@ This repo proposes a clear information architecture:
 - **.thoughts/**: folders prepared for FIC artifacts (research / plans / prs)
 
 
-## How to config
+## Installation & Setup
 
-1. Copy ai-repo files to working directory.
+1. Copy the configuration files and directories to your working repository:
 
+```bash
+cp -rf .rules .agents .thoughts .docs AGENTS.md CLAUDE.md GEMINI.md PROJECT.md .gitignore /path/to/working-repo/
 ```
-cp -rf AGENTS.md GEMINI.md .rules .agents .thoughts /to/working-repo
-```
+
+2. Customize `PROJECT.md` with your repository's specific information.
 
 ## How to use FIC
 
-// TODO
-// EXPLAin workflow
+The FIC (Frequent Intentional Compaction) workflow helps manage agent context by frequently summarizing and resetting it.
 
+1. **Research**: Analyze the problem and save a compact summary in `.thoughts/shared/research/`.
+2. **Plan**: Create a minimal TDD plan in `.thoughts/shared/plans/`.
+3. **Implement**: Execute in micro-steps.
+4. **Validate**: Run tests and capture a final summary in `.thoughts/shared/prs/`.
 
-### FIC Rule of Thumb (añadir a .rules/base.md)
-
-```md
-## Context reset rule
-
-If the agent shows:
-- repeated misunderstandings
-- rule violations
-- hallucinated constraints
-- excessive verbosity
-
-STOP immediately.
-
-Perform a context reset using a compaction summary.
-Never try to fix a drifting agent incrementally.
-```
+See [.rules/fic-workflow.md](.rules/fic-workflow.md) for detailed instructions.
 
 
 
@@ -49,12 +39,12 @@ Never try to fix a drifting agent incrementally.
 
 ### Claude (Claude Code / Claude Chat)
 
-Claude **no tiene reset real**. El reset se hace **por reemplazo completo del contexto**.
+Claude **does not have a real reset**. Resetting is done by **completely replacing the context**.
 
-**Procedimiento recomendado**
+**Recommended Procedure**
 
-1. Abrir **nueva conversación**
-2. Primer mensaje obligatorio:
+1. Open a **new conversation**
+2. Mandatory first message:
 
 ```text
 You are starting a new session.
@@ -64,7 +54,7 @@ Ignore any previous conversation or memory.
 
 Context:
 - Project uses Augmented Code with FIC.
-- Follow rules from .rules/base.md strictly.
+- Follow rules from .rules/base-rules.md strictly.
 - Use TDD and small steps.
 - Do not invent requirements.
 
@@ -75,30 +65,30 @@ Your task:
 <<one single, explicit next step>>
 ```
 
-**Señal de reset correcto**
+**Signal of correct reset**
 
-* Claude reformula el objetivo
-* No arrastra contexto previo
-* Pregunta antes de asumir
+* Claude restates the goal
+* It doesn't carry over previous context
+* It asks before assuming
 
 ---
 
 ### Codex (OpenAI Codex)
 
-Codex es **stateless por request** si se usa correctamente.
+Codex is **stateless per request** if used correctly.
 
-**Reset efectivo**
+**Effective Reset**
 
-* Nueva llamada
-* Nuevo `messages[]`
-* No reutilizar conversación previa
+* New call
+* New `messages[]`
+* Do not reuse previous conversation
 
 Prompt base:
 
 ```text
 SYSTEM:
 You are a coding agent operating under Augmented Code with FIC.
-Rules in .rules/base.md are mandatory.
+Rules in .rules/base-rules.md are mandatory.
 Assume no prior context.
 
 USER:
@@ -109,30 +99,30 @@ Task:
 <<single explicit step>>
 ```
 
-**Anti-patrón**
+**Anti-pattern**
 
-* Reenviar historial largo
-* “Continuamos donde lo dejamos”
+* Sending back long history
+* "Continuing where we left off"
 
-Eso **rompe FIC**.
+That **breaks FIC**.
 
 ---
 
 ### Cursor
 
-Cursor mantiene **memoria implícita por workspace**.
+Cursor maintains **implicit memory per workspace**.
 
-**Reset recomendado**
+**Recommended Reset**
 
-1. Cerrar el chat actual
-2. Abrir **nuevo chat**
-3. Primer mensaje:
+1. Close the current chat
+2. Open a **new chat**
+3. First message:
 
 ```text
 Reset context.
 
 Only valid inputs:
-- .rules/base.md
+- .rules/base-rules.md
 - .rules/profiles/<active-profile>.md
 - This context summary:
 
@@ -141,25 +131,25 @@ Only valid inputs:
 Confirm understanding before coding.
 ```
 
-Si sigue degradado:
+If it remains degraded:
 
-* Reiniciar Cursor **o**
-* Cambiar de rama (fuerza refresco interno)
+* Restart Cursor **or**
+* Change branch (forces internal refresh)
 
-**Consejo FIC**
-Chats cortos por tarea.
-Sesiones largas degradan rápido.
+**FIC Advice**
+Short chats per task.
+Long sessions degrade quickly.
 
 ---
 
 ### Gemini
 
-Gemini tiene memoria conversacional **débil pero persistente**.
+Gemini has **weak but persistent** conversational memory.
 
-**Reset recomendado**
+**Recommended Reset**
 
-1. Nueva conversación
-2. Primer mensaje explícito:
+1. New conversation
+2. Explicit first message:
 
 ```text
 Forget any previous context.
@@ -174,7 +164,7 @@ Constraints:
 - Small, reversible steps only
 ```
 
-👉 Sé más imperativo que con Claude o Codex.
+👉 Be more imperative than with Claude or Codex.
 
 
 
