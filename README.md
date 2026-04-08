@@ -108,40 +108,6 @@ That **breaks FIC**.
 
 ---
 
-### Cursor
-
-Cursor maintains **implicit memory per workspace**.
-
-**Recommended Reset**
-
-1. Close the current chat
-2. Open a **new chat**
-3. First message:
-
-```text
-Reset context.
-
-Only valid inputs:
-- .rules/base-rules.md
-- .rules/profiles/<active-profile>.md
-- This context summary:
-
-<<paste compaction summary here>>
-
-Confirm understanding before coding.
-```
-
-If it remains degraded:
-
-* Restart Cursor **or**
-* Change branch (forces internal refresh)
-
-**FIC Advice**
-Short chats per task.
-Long sessions degrade quickly.
-
----
-
 ### Gemini
 
 Gemini has **weak but persistent** conversational memory.
