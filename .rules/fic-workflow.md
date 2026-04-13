@@ -6,7 +6,9 @@
    - Summarize *only* the next deliverable + open decisions.
    - Ask users any questions. DO NOT GUESS!
    - Persist the summary in `.thoughts/shared/research/<YYYYMMDDHHMM-topic>.md` (use `.thoughts/templates/research.md` as a guide).
-   - Create or update `TASKS.md` checklist with findings.
+   - **Refactoring Safety**: Analyze current test coverage and quality for the area to be changed. Determine if new tests are needed to cover a broader scope for safe refactoring.
+   - **Importance and Necessity**: Explore *why* this change is important. Is it necessary? What is gained if it's done, and what is lost if it's not?
+   - **Architectural Alignment**: Ensure the research considers and respects a DDD-oriented architecture. Update the research if necessary based on these considerations.
 
 2. **Plan**
    - Propose the smallest viable plan for the next slice.
@@ -45,6 +47,8 @@ The workflow behavior, phase boundaries, and default artifact location come from
 ## Compaction rule of thumb
 - After Research → clear/reset context
 - After Plan → clear/reset context
+- After Implement → clear/reset context
+- After Validate → clear/reset context
 - If you notice drift/looping → stop, compact again, reset
 
 ## “FIC light” prompts (copy/paste)
