@@ -4,19 +4,25 @@
 1. **Research**
    - Read the prompt/repo.
    - Summarize *only* the next deliverable + open decisions.
+   - Identify the behavioral seam that must remain stable during the next slice.
+   - Identify the highest test seam that can protect that behavior without entering infrastructure.
+   - Explicitly check whether any "port" in the candidate seam is only a proxy service over a repository or external dependency.
    - Ask users any questions. DO NOT GUESS!
    - Persist the summary in `.thoughts/shared/research/<YYYYMMDDHHMM-topic>.md` (use `.thoughts/templates/research.md` as a guide).
-   - **Refactoring Safety**: Analyze current test coverage and quality for the area to be changed. Determine if new tests are needed to cover a broader scope for safe refactoring.
-   - **Importance and Necessity**: Explore *why* this change is important. Is it necessary? What is gained if it's done, and what is lost if it's not?
-   - **Architectural Alignment**: Ensure the research considers and respects a DDD-oriented architecture. Update the research if necessary based on these considerations.
 
 2. **Plan**
    - Propose the smallest viable plan for the next slice.
+   - When tests are part of the slice, state explicitly:
+     - the visible behavior being protected,
+     - the intended test seam,
+     - which collaborators will remain real,
+     - which dependency is the first meaningful mocked port.
    - Write the plan in `.thoughts/shared/plans/<YYYYMMDDHHMM-topic>.md` (use `.thoughts/templates/plan.md` as a guide).
 
 3. **Implement**
    - Execute the plan in micro-steps.
    - Prefer TDD: red → green → refactor, tiny commits.
+   - Before writing the first test, re-check that the chosen seam is not anchored on a proxy service when a lower repository boundary is the real source of behavior.
 
 4. **Validate**
    - Run tests + basic quality gates.

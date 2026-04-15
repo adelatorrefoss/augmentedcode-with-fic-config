@@ -61,7 +61,9 @@ Never try to fix a drifting agent incrementally.
 - **Dependency Security**: Regularly update dependencies and monitor for security vulnerabilities.
 
 ### Testing Strategy Distinction
-- **Unit Tests**: Fast, isolated tests for individual components (the majority of the test suite). Test the functional unit, from use case to infrastructure port, and avoid mocking internal services unless necessary to simplify test configuration.
+- **Unit Tests**: Fast, isolated tests for individual components (the majority of the test suite). Test the functional unit, from use case to the first meaningful infrastructure port, and avoid mocking internal services unless necessary to simplify test configuration.
+- **Meaningful Port Rule**: Do not stop a characterization test at a service interface if that service is only a thin proxy over another dependency. In those cases, keep the proxy service real and mock the underlying repository or external boundary where data is actually read or decisions are actually made.
+- **Refactor Safety-Net Rule**: For behavior-preserving refactors, place the first safety-net test at the highest stable seam that still remains outside infrastructure. Prefer asserting the visible behavior of the functional flow over asserting an internal intermediate contract, unless the task explicitly targets that internal contract.
 - **Integration Tests**: Test interactions between components and external systems (limited, focused).
 - **E2E Tests**: Full system validation (minimal, critical user paths only).
 - **Test Pyramid**: Follow the test pyramid - many unit tests, some integration tests, few E2E tests.

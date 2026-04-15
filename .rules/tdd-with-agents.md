@@ -6,6 +6,7 @@
 - Refactor only on green.
 - Prefer pure functions / deterministic tests.
 - Avoid large refactors without characterization tests.
+- For behavior-preserving refactors, the first characterization test should protect the highest stable functional seam, not the most convenient internal seam.
 
 ## Definition of done (per slice)
 - Tests pass locally.
@@ -20,6 +21,8 @@
 - “Implementing ahead” of the current requirement.
 - Adding abstractions without tests.
 - Rewriting instead of refactoring (unless explicitly requested).
+- Treating a thin proxy service as the target port of a characterization test when the real behavior comes from a lower repository or external boundary.
+- Building the initial safety-net around an internal contract when the user asked to preserve visible behavior.
 
 ## Test Naming & Coverage
 - **Descriptive Names**: Test function names should clearly describe the scenario and expected outcome.
