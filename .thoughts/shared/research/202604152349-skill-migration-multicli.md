@@ -57,15 +57,25 @@
   - specialized navigation/research helpers
   - any long checklist or multi-step operational guide
 
-### 3. Official capability check as of 2026-04-15
+### 3. Official capability check as of 2026-04-22
+
+Re-check result:
+- The broad compatibility conclusion still holds.
+- The Codex adapter path in the original 2026-04-15 recommendation needs correction:
+  - current Codex docs say repository skills are discovered from `.agents/skills`, not `.codex/skills`.
+  - Codex plugins are now the documented installable distribution unit for reusable skills and apps.
+- Claude Code and Gemini CLI source checks did not change the adapter strategy.
 
 #### Codex CLI
 - Codex officially supports both `AGENTS.md` and skills.
 - Official docs state Codex reads `AGENTS.md` files before work and layers global and project guidance.
-- Official docs also state Codex skills use `SKILL.md`, are loaded via metadata first, and are based on the open agent skills standard.
+- Official docs also state Codex skills use `SKILL.md`, are loaded via metadata first, and are available in the CLI, IDE extension, and Codex app.
+- Repository-scoped Codex skills should live under `.agents/skills`.
+- Codex plugins are the documented installable distribution unit when skills should be shared beyond one repo.
 - This means Codex can support a split architecture cleanly:
   - `AGENTS.md` for always-on repo policy
-  - `SKILL.md` directories for procedural workflows
+  - `.agents/skills/<skill-name>/SKILL.md` directories for procedural workflows
+  - plugins for broader distribution, if needed
 
 #### Claude Code
 - Claude officially supports `CLAUDE.md` for always-on project memory.
@@ -92,33 +102,31 @@
 - The right target is:
   - one canonical workflow/spec source
   - two native skill adapters (`Codex`, `Claude`)
-  - one Gemini adapter (`commands` and optionally `extension`)
+  - one Gemini adapter through project-level `commands`
 
 ## Recommended Target Architecture
 
 ### A. Canonical source inside the repo
-- Keep the canonical workflow text in repo-owned markdown files, not inside three platform-specific folders.
-- Suggested structure:
+- Keep the canonical workflow text in `.rules/`, not inside three platform-specific folders.
+- Use `.rules/fic/` for extracted FIC phase specs:
 
 ```text
-.agent-os/
-  canon/
-    entry.md
-    fic-workflow.md
-    tdd.md
-    refactoring.md
-    feedback-loop.md
-    intellij-navigation.md
-  adapters/
-    codex/
-    claude/
-    gemini/
+.rules/
+  entry.md
+  base-rules.md
+  fic-workflow.md
+  fic/
+    research.md
+    plan.md
+    implement.md
+    validate.md
 ```
 
 - Rationale:
-  - one source of truth
-  - platform adapters can stay thin
-  - easier maintenance than editing three parallel instruction trees
+  - one source of truth;
+  - simpler migration;
+  - preserves the current mental model;
+  - platform adapters can stay thin.
 
 ### B. Thin per-CLI entry files
 - Keep these files in the repo root:
@@ -153,8 +161,8 @@ Suggested intent:
 
 ### Codex CLI adapter
 - Implement each capability as a Codex skill:
-  - `.codex/skills/fic-research/SKILL.md`
-  - `.codex/skills/fic-plan/SKILL.md`
+  - `.agents/skills/fic-research/SKILL.md`
+  - `.agents/skills/fic-plan/SKILL.md`
   - etc.
 - Keep `AGENTS.md` focused on:
   - startup rules
@@ -163,6 +171,7 @@ Suggested intent:
 - Best fit:
   - FIC procedures become skills
   - core norms remain in `AGENTS.md`
+  - reusable distribution, if needed outside this repo, happens through a Codex plugin rather than a repo-local skill path
 
 ### Claude Code adapter
 - Implement the same capability set as Claude skills:
@@ -191,7 +200,7 @@ Suggested intent:
 | `.rules/tdd-with-agents.md` | `tdd-guardrails` skill | Procedure/checklist, not startup memory |
 | `.rules/refactoring-planner.md` | `refactoring-planner` skill | Strong skill candidate |
 | `.rules/ai-feedback-learning-loop.md` | `feedback-learning-loop` skill | Procedure, low-frequency, on-demand |
-| `.agents/skills/intellij-navigation/SKILL.md` | keep as skill and add CLI adapters if needed | Already near target shape |
+| `.agents/skills/intellij-navigation/SKILL.md` | keep as Codex repo skill and add Claude/Gemini adapters if needed | Already in the current Codex repo skill location |
 | `AGENTS.md` / `CLAUDE.md` / `GEMINI.md` | keep as symbolic links to `.rules/entry.md` unless platform-specific adapter files are needed | No duplicated entry text exists today |
 
 ## Suggested Rollout Plan
@@ -207,33 +216,29 @@ Suggested intent:
 
 ### Phase 2: Ship Codex and Claude adapters first
 - These are the most natural targets because both support `SKILL.md`.
+- For Codex, use `.agents/skills`, matching the current official repository-skill discovery path.
 - This phase validates the canonical split with the lowest translation cost.
 
 ### Phase 3: Add Gemini command adapters
 - Build `.gemini/commands/` from the same canonical specs.
-- If team sharing matters across repos, package them as a Gemini extension.
+- If team sharing matters across repos later, package them as a Gemini extension in a separate distribution slice.
 
 ### Phase 4: Trim root entry files
 - After skill coverage exists, reduce `AGENTS.md`, `CLAUDE.md`, and `GEMINI.md` to concise startup guidance.
 - Avoid keeping long procedural checklists in root memory files.
 
-## Open Decisions & Questions
-- Decision: whether `.rules/` remains the canonical source, or whether a new canonical folder should own reusable workflow specs.
-  - Keep `.rules/` as canonical:
-    - simpler migration
-    - preserves current mental model
-    - but mixes always-on policy with on-demand procedures
-  - Create a new canonical workflow/spec layer:
-    - cleaner long-term architecture
-    - easier multi-CLI generation
-    - but requires one structural refactor first
-- Decision: whether Gemini support should stop at `.gemini/commands/` or be packaged as a full extension.
-  - Commands only:
-    - faster
-    - lower maintenance
-  - Full extension:
-    - more shareable
-    - better long-term distribution story
+## Decisions
+- Decision 1: keep `.rules/` as the canonical source.
+  - Rationale:
+    - simpler migration;
+    - preserves the current mental model;
+    - avoids introducing a structural `.agent-os/` layer.
+- Decision 2: implement Gemini support as `.gemini/commands/`.
+  - Rationale:
+    - faster;
+    - lower maintenance;
+    - sufficient for repo-local workflow compatibility.
+  - A full Gemini extension remains a future distribution option, not part of the first migration slice.
 
 ## Recommended Next Deliverable
 - The smallest high-value next step is a `fic-plan` for:
@@ -244,9 +249,9 @@ Suggested intent:
 ## Bottom-Line Recommendation
 - Do not try to replace this repo with one universal `SKILL.md` tree.
 - Instead, treat the repo as a canonical instruction source and generate native adapters:
-  - Codex: `AGENTS.md` + `SKILL.md`
+  - Codex: `AGENTS.md` + `.agents/skills/<name>/SKILL.md`
   - Claude: `CLAUDE.md` + `SKILL.md`
-  - Gemini: `GEMINI.md` + `.gemini/commands/` or extension
+  - Gemini: `GEMINI.md` + `.gemini/commands/`
 - The repo is already close to this shape. The migration is mostly extraction and packaging, not a conceptual rewrite.
 
 ## Sources
@@ -264,10 +269,11 @@ Suggested intent:
   - `.docs/fic-philosophy.md`
   - `.docs/maintenance-guide.md`
   - `.agents/skills/intellij-navigation/SKILL.md`
-- Official docs verified on 2026-04-15:
+- Official docs verified on 2026-04-15 and re-checked on 2026-04-22:
   - OpenAI Codex `AGENTS.md`: https://developers.openai.com/codex/guides/agents-md
   - OpenAI Codex skills: https://developers.openai.com/codex/skills
   - OpenAI Codex CLI overview: https://developers.openai.com/codex/cli
+  - Agent Skills open standard: https://agentskills.io/
   - Claude Code memory and `CLAUDE.md`: https://code.claude.com/docs/en/memory
   - Claude Code skills: https://code.claude.com/docs/en/skills
   - Claude Code extension overview: https://code.claude.com/docs/en/features-overview
