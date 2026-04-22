@@ -73,16 +73,16 @@ Use document-level compatibility checks instead of unit tests:
    - Only update `.rules/entry.md` if implementation reveals a minimal wording change is required to point agents at the new FIC skill/spec structure.
 
 ## Step-by-Step Plan
-1. [ ] **🔎 1/7 - Baseline checks**
+1. [x] **🔎 1/7 - Baseline checks**
    - Confirm `AGENTS.md`, `CLAUDE.md`, and `GEMINI.md` are still symbolic links to `.rules/entry.md`.
    - Confirm current FIC alias text in `.rules/fic-workflow.md` before editing.
 
-2. [ ] **🧭 2/7 - Extract canonical phase specs**
+2. [x] **🧭 2/7 - Extract canonical phase specs**
    - Create `.rules/fic/research.md`, `.rules/fic/plan.md`, `.rules/fic/implement.md`, and `.rules/fic/validate.md`.
    - Move phase-specific procedure text from `.rules/fic-workflow.md` into those files.
    - Keep shared behavior, phase boundaries, compaction rules, and artifact locations intact.
 
-3. [ ] **📌 3/7 - Reduce `.rules/fic-workflow.md` to contract plus index**
+3. [x] **📌 3/7 - Reduce `.rules/fic-workflow.md` to contract plus index**
    - Keep the phase list, alias command forms, artifact locations, and links to the new phase spec files.
    - Avoid making `.rules/fic-workflow.md` a second copy of the phase procedures.
 

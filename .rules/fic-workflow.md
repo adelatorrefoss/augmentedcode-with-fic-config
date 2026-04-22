@@ -1,35 +1,12 @@
 # FIC workflow (Frequent Intentional Compaction)
 
 ## Phases
-1. **Research**
-   - Read the prompt/repo.
-   - Summarize *only* the next deliverable + open decisions.
-   - Identify the behavioral seam that must remain stable during the next slice.
-   - Identify the highest test seam that can protect that behavior without entering infrastructure.
-   - Explicitly check whether any "port" in the candidate seam is only a proxy service over a repository or external dependency.
-   - Ask users any questions. DO NOT GUESS!
-   - Persist the summary in `.thoughts/shared/research/<YYYYMMDDHHMM-topic>.md` (use `.thoughts/templates/research.md` as a guide).
+The canonical phase procedures live in `.rules/fic/`.
 
-2. **Plan**
-   - Propose the smallest viable plan for the next slice.
-   - When tests are part of the slice, state explicitly:
-     - the visible behavior being protected,
-     - the intended test seam,
-     - which collaborators will remain real,
-     - which dependency is the first meaningful mocked port.
-   - Write the plan in `.thoughts/shared/plans/<YYYYMMDDHHMM-topic>.md` (use `.thoughts/templates/plan.md` as a guide).
-
-3. **Implement**
-   - Execute the plan in micro-steps.
-   - Prefer TDD: red → green → refactor, tiny commits.
-   - Before writing the first test, re-check that the chosen seam is not anchored on a proxy service when a lower repository boundary is the real source of behavior.
-
-4. **Validate**
-   - Run tests + basic quality gates.
-   - Check test quality, coverage, assertions, and test quality gates.
-   - Critique the unit test vs. integration test split.
-   - Check constraints are still satisfied.
-   - Capture the final compact summary (what changed, why) in `.thoughts/shared/prs/<YYYYMMDDHHMM-topic>.md` (use `.thoughts/templates/validation.md` as a guide).
+1. **Research**: `.rules/fic/research.md`
+2. **Plan**: `.rules/fic/plan.md`
+3. **Implement**: `.rules/fic/implement.md`
+4. **Validate**: `.rules/fic/validate.md`
 
 ## Phase aliases
 
@@ -49,6 +26,8 @@ The workflow behavior, phase boundaries, and default artifact location come from
 - `fic-plan`: do Plan only, propose the smallest viable next slice, and save the result in `.thoughts/shared/plans/<YYYYMMDDHHMM-topic>.md`.
 - `fic-implement`: do Implement only, execute the approved plan for the same topic in small steps, prefer TDD, and do not switch back into research or planning mode unless blocked.
 - `fic-validate`: do Validate only, do not add new scope, run checks, summarize what changed and what comes next, and save the result in `.thoughts/shared/prs/<YYYYMMDDHHMM-topic>.md`.
+
+When executing an alias, read the matching canonical phase file before acting.
 
 ## Compaction rule of thumb
 - After Research → clear/reset context
