@@ -86,7 +86,7 @@ Use document-level compatibility checks instead of unit tests:
    - Keep the phase list, alias command forms, artifact locations, and links to the new phase spec files.
    - Avoid making `.rules/fic-workflow.md` a second copy of the phase procedures.
 
-4. [ ] **🧩 4/7 - Add Codex repository FIC skill adapters**
+4. [x] **🧩 4/7 - Add Codex repository FIC skill adapters**
    - Create the four `.agents/skills/fic-*/SKILL.md` files.
    - Use lowercase hyphenated skill names.
    - Write frontmatter descriptions that explicitly trigger on the matching `fic-*:` alias and planning/research/implementation/validation intent.
