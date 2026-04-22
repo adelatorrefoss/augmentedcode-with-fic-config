@@ -9,9 +9,16 @@ Perform code navigation tasks using IntelliJ MCP tools with validation and class
 
 ## Mandatory behavior
 
-- Always use `intellij` MCP tools
-- Never use shell, grep, or filesystem search
-- Prefer semantic understanding over text matching
+- Use IntelliJ/Rider MCP tools for semantic navigation:
+- resolving symbols,
+- finding usages,
+- inspecting declarations,
+- validating references,
+- understanding code structure.
+- For known file paths, prefer direct filesystem reads such as `sed -n`, `rg`, or equivalent shell commands.
+- For simple filename or text searches, prefer `rg --files` and `rg`.
+- Do not use IntelliJ/Rider MCP for simple path-based reads unless IDE context is specifically useful.
+- Prefer semantic understanding over text matching when the task is about code relationships.
 
 ## Workflow
 
@@ -33,8 +40,9 @@ Exclude:
 - TestResults, bin, obj
 
 4. Validate
-- Open files with `open_file_in_editor` or `get_file_text_by_path`
-- Confirm actual usage
+- For semantic validation, use `get_symbol_info`, `search_symbol`, or targeted MCP reads.
+- For already-known file paths or line ranges, use direct filesystem reads.
+- Confirm actual usage before reporting it.
 
 5. Classify
 - production call site
@@ -52,4 +60,3 @@ Exclude:
 
 - Do not use unsupported parameters
 - Avoid truncateMode unless known valid
-

@@ -12,6 +12,13 @@ These rules are intended to be the base instructions for an agent.
 - **Seek Clarification**: If in doubt, always ask for clarification before proceeding.
 - **Sequential Questions**: Only one question at a time; each question should build on previous answers.
 
+## Tool usage
+
+- Use Rider/IntelliJ MCP for semantic code navigation: symbols, usages, declarations, references, and structure.
+- Use direct filesystem tools for known file paths, known line ranges, and simple text or filename searches.
+- Prefer `rg --files`, `rg`, and ranged reads for fast repository inspection.
+- Use Atlassian MCP for Jira and Confluence.
+
 ## Code changes
 
 - Do not introduce new libraries without justification.
