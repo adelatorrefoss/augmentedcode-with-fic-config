@@ -1,5 +1,7 @@
 # Augmented code with FIC (Frequent Intentional Compaction) configuration
 
+aka Harnessing Engineering :D
+
 _This repo is a FIC workflow (Frequent Intentional Compaction) by  [Dex Horthy - Advanced context engineering for coding agents][6]_
 
 _Thanks to [Eduardo Ferro][1] for the base repo and [Nacho Viejo][3] for the inspiration to try FIC_
